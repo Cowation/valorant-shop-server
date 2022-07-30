@@ -1,0 +1,20 @@
+# Will notify all users of ValorantShop of any favorited items in stock.
+
+name: notify
+
+# Controls when the workflow will run
+on:
+  schedule:
+   - cron: '1 0 * * *'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  cron:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call the notify route
+        run: | 
+          curl -XPOST -H "Content-type: application/json" -d '{"NOTIFY_KEY":"${{ secrets.NOTIFY_KEY }}"}' 'https://valorant-shop-server.vercel.app/api/notify'
