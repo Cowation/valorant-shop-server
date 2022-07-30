@@ -16,6 +16,8 @@ export default async function handler(
     return;
   }
 
+  console.log(req.body.NOTIFY_KEY);
+
   // check if environment variable NOTIFY_KEY and req.body.NOTIFY_KEY are equal
   if (process.env.NOTIFY_KEY !== req.body.NOTIFY_KEY) {
     res.status(401).json({ success: false, message: "Invalid key" });
