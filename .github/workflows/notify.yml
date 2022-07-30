@@ -16,8 +16,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Call the notify route
-        run: |
-          curl --request POST \
-          --url 'https://valorant-shop-server.vercel.app/api/notify' \
-          -h "Content-Type: application/json" \
-          -d '{"NOTIFY_KEY":"${{ secrets.NOTIFY_KEY }}"}'
+        run: | 
+          curl -XPOST -H "Content-type: application/json" -d '{"NOTIFY_KEY":"${{ secrets.NOTIFY_KEY }}"}' 'https://valorant-shop-server.vercel.app/api/notify'
