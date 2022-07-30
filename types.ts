@@ -161,4 +161,5 @@ export interface StoreItem {
   displayIcon: string;
   tierId: string;
   vp: number;
+  itemUuid: string;
 }
